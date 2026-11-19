@@ -4,6 +4,10 @@
 
 LSMesh is designed to share position and status among mobile teams and robots in places where network infrastructure is limited or unreliable. Nodes coordinate radio airtime, relay traffic across hops, and recover automatically when the keeper drops offline. The mesh protocol is designed to be frequency-agnostic. The current validation platform is Heltec V2 hardware using sub-GHz LoRa, where tight airtime budgets make multi-hop scheduling and recovery demanding to verify.
 
+## Experimental firmware update
+
+The [November 19 experimental update](EXPERIMENTAL-UPDATE-2026-11-19.md) includes the aggregate forwarding depth correction and per-board V2 source and images. The two-relay bench test carried return traffic but exposed later schedule loss and a mesh split. End-to-end delivery remains unverified. See the update before using the firmware.
+
 ## Verified engineering checkpoints
 
 | Checkpoint | What we observed |
@@ -31,4 +35,4 @@ The secured firmware uses AES-256-GCM authenticated encryption. Hardware-rooted 
 
 The next milestone is to verify that each node gets fresh peer positions within two seconds. A keeper USB capture saw reports from every member. Median arrival gaps at that output ranged from 3.05 to 4.06 seconds, and that particular indoor run had no valid GPS fixes. The follow-up will measure valid position updates at the receiving nodes.
 
-A separate LSMesh source release without the encryption component is planned. This repository presents the engineering case study.
+This repository presents the engineering case study and the experimental V2 firmware checkpoint. The source includes authenticated encryption code but no enrolled device keys or NVS backups. The experimental upload does not establish production readiness.
